@@ -56,7 +56,7 @@ RUN export FILE=buildroot-$buildroot_version.tar.bz2 && \
     grep SHA1: $FILE.sign | cut -d ' ' -f '2,3,4' | shasum -c - && \
     mkdir -p /buildroot && \
     tar -xjf $FILE  -C /buildroot --strip-components=1 && \
-    rm -r $FILE* /root/.gnupg
+    rm -rf $FILE* /root/.gnupg buildroot_pubkey.gpg
 
 WORKDIR /buildroot
 
